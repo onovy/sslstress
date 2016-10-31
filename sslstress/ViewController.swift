@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var resLabel: UILabel!
     @IBAction func btnAct(_ sender: AnyObject) {
         for _ in 1...100 {
-            getUrl("https://www.seznam.cz/zpravy/clanek/tady-konci-legenda-pojdte-s-nami-do-nejznamejsiho-prazskeho-bytu-cena-50-milionu-3392")
+            getUrl("https://ladime.seznam.cz/zpravy/clanek/tady-konci-legenda-pojdte-s-nami-do-nejznamejsiho-prazskeho-bytu-cena-50-milionu-3392")
             //getUrl("https://www.google.com")
             
         }
@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         let requestURL: URL = URL(string: full_url)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL)
     
+        
+        urlRequest.setValue("-", forHTTPHeaderField: "Accept-Encoding")
         let task = session!.dataTask(with: urlRequest as URLRequest
             
             ,completionHandler: {
